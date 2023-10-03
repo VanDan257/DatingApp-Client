@@ -1,0 +1,33 @@
+import { Component , OnInit} from '@angular/core';
+import { Observable } from 'rxjs';
+import { Member } from '../../_model/member';
+import { MembersService } from '../../_services/members.service';
+
+@Component({
+  selector: 'app-member-list',
+  templateUrl: './member-list.component.html',
+  styleUrls: ['./member-list.component.css']
+})
+export class MemberListComponent implements OnInit {
+  public members$: Observable<Member[]> | undefined;
+
+  constructor(private memberService: MembersService) { }
+
+  async ngOnInit(): Promise<void> {
+    this.members$ = await this.memberService.getMembers();
+  }
+
+  //async loadMembers(): Promise<void> {
+  //  return new Promise<void>((resolve, reject) => {
+  //    this.memberService.getMembers().subscribe({
+  //      next: members => {
+  //        this.members = members;
+  //        resolve();
+  //      },
+  //      error: error => {
+  //        reject(error);
+  //      }
+  //    });
+  //  });
+  //}
+}
