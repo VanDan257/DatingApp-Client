@@ -25,7 +25,7 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
-
+import { FileUploadModule } from 'ng2-file-upload';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -54,6 +54,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     RouterLink,
     SharedModule,
+    FileUploadModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
