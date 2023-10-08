@@ -27,6 +27,8 @@ import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.gu
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { FileUploadModule } from 'ng2-file-upload';
 import { AppRoutingModule } from './app-routing.module';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
+import { DatetimePickerComponent } from './_forms/datetime-picker/datetime-picker.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { AppRoutingModule } from './app-routing.module';
     MemberCardComponent,
     MemberEditComponent,
     PhotoEditorComponent,
+    TextInputComponent,
+    DatetimePickerComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -54,7 +58,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     RouterLink,
     SharedModule,
-    FileUploadModule,
+    // FileUploadModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
